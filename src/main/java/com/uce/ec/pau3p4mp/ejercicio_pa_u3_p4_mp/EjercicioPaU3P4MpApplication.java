@@ -38,13 +38,23 @@ public class EjercicioPaU3P4MpApplication implements CommandLineRunner {
 				.build();
 		productoService.ingresarProducto(producto);
 
-
+		Producto producto2 = Producto.builder()
+				.codigoBarras("002")
+				.nombre("Colgate")
+				.categoria("higiene personal")
+				.stock(12)
+				.precio(BigDecimal.valueOf(3))
+				.build();
+		productoService.ingresarProducto(producto2);
 
 		ProductoCompraDTO dto = new ProductoCompraDTO("001",5);
+
+		ProductoCompraDTO dto2 = new ProductoCompraDTO("002",5);
 
 		List <ProductoCompraDTO> dtos = new ArrayList<>();
 
 		dtos.add( dto);
+		dtos.add( dto2);
 
 		facturaService.realizarFactura(dtos,"485685982");
 	}
